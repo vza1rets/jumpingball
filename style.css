@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    background: 
+        linear-gradient(rgba(135, 206, 235, 0.2), rgba(224, 247, 250, 0.2)),
+        url('full.png') center/cover no-repeat;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+#ball {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-image: url('ball.png'); 
+    background-size: contain; 
+    background-repeat: no-repeat;
+    bottom: 100px;
+    left: 100px;
+    z-index: 10;
+    transition: transform 0.1s;
+}
+
+#ball.jumping {
+    transform: scale(1.1, 0.9); 
+}
+
+#ball.jumping {
+    transform: scale(1.1, 0.9);
+}
+
+#ground {
+    position: absolute;
+    width: 100%;
+    height: 110px;
+    background: linear-gradient(to right, #1c1730, #371938);
+    bottom: 0;
+    z-index: 10;
+}
+
+.obstacle {
+    position: absolute;
+    width: 40px;
+    height: 80px;
+    background: linear-gradient(to bottom, #771366, #eb44eb);
+    bottom: 100px;
+    right: -40px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+    z-index: 8;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    z-index: 20;
+}
+
+#game-over, #start-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+    display: none;
+    z-index: 30;
+    backdrop-filter: blur(5px);
+}
+
+#game-over h2, #start-screen h1 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+#restart-button {
+    position: relative;
+    min-width: 250px; 
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    color: white;
+    background: linear-gradient(135deg, #e24574 0%, #770404 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: 20px auto 0;
+}
+
+#restart-button:hover {
+    background: #f08bc9;
+    transform: scale(1.05);
+}
+
+#start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+#space-key {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
